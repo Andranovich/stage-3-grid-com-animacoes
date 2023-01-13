@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-heading: 'Staatliches', cursive;
+    --ff-texting: 'Palanquin', sans-serif;
+    --ff-roboto: 'Roboto', sans-serif;
+    --ff-footer: 'Open sans', sans-serif;
+
+    font-size: 62.5%;
+    --fs-heading: 4rem;
+    --fs-text: 2.4rem;
+}
+
+
+.header-content {
+    color: #FFFFFF;
+    background: #8E9AAF;
+    font-family: var(--ff-heading);
+    text-align: center;
+    height: 30rem;
+    width: 100%;
+}
+
+header .description-desktop  {
+    margin: 1.4rem auto 6rem;
+    line-height: 2rem;
+    font-family:  var(--ff-texting);
+    font-size: 2rem;
+    font-weight: 400;
+    color: #23053A;     
+    max-width: 47.5rem; 
+    height: 100%;
+    text-align: center;    
+}
+
+.header-content img {
+    margin: 3.2rem 0;
+}
+
+.header-content h1 {
+    font-size: var(--fs-heading);
+    line-height: 3.4rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    background: #CBC0D3;
+    padding: 2rem ;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    height: 7rem;        
+}
+
+body {
+    background-color: #EFF1FF;
+}
+
+.page {
+    margin: 0 auto;
+    padding: 0;
+}
+
+main {
+    font-family: var(--ff-texting);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+    margin-bottom: 6rem;
+}
+
+.card {
+    position: relative;
+    font-family: var(--ff-heading);
+    height: 100%;
+}
+
+.card img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    animation: downtop 700ms 350ms;
+    object-fit: cover;
+}
+
+.card h2 {
+    position: absolute;
+    color: #4A4E69;
+    background-color: #FEEAFA;
+    top: 1.6rem;
+    right: 1.6rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    font-weight: 400;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 12.2rem;
+    text-align: center;
+    animation: topdown 900ms 500ms forwards;
+    opacity: 0;
+    /* animation-fill-mode: forwards; */
+}
+
+.footer {
+    opacity: 0;
+}
+
+
+@keyframes topdown {
+    0%  {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .page {
+        display: flex;
+    }
+
+    header .description-desktop  {
+        margin: 0;
+        background-color: #8E9AAF;
+        color: #ffffff;
+        line-height: 3.5rem;
+        text-align: center;
+        min-width: 377px;
+        font-family: var(--ff-roboto);
+        font-size: 2.4rem;
+        font-weight: 400;              
+    }
+
+    .description-desktop {
+        padding-top: 3.2rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        padding-bottom: 12.5rem;        
+    }
+
+
+    main {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "A B C" 
+        "D B E" 
+        "D F E"
+        "G G G";
+        gap: 3.2rem;
+        margin-top: 64px;
+        margin-left: 9.8rem;
+        margin-right: 9rem;
+        max-width: 100%;
+        align-self: center;
+    }
+
+    main div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main div:nth-child(3) {
+        grid-area: C;
+    }
+     
+    main div:nth-child(4) {
+        grid-area: D;
+        
+    }
+
+    main div:nth-child(5) {
+        grid-area: F;
+    }
+
+    main div:nth-child(6) {
+        grid-area: E;
+    }
+
+    .card h2 {
+        display: none;
+    }
+
+    .footer {
+        opacity: 1;
+    }
+
+    .footer  {
+        font-family: var(--ff-footer);
+        font-weight: 400;
+        line-height: 2.8rem;
+        font-size: 1.7rem;
+        margin-top: 1rem;
+        text-align: center;
+        color: #4A4E69; 
+        grid-area: G;       
+    }
+
+    .footer a {
+        font-weight: bold;
+        color: #4A4E69;  
+        text-decoration: none;
+    }
+}
